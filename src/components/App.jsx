@@ -9,8 +9,6 @@ export const App = () => {
     return savedContacts || [];
   });
   const [filter, setFilter] = useState('');
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
 
   useEffect(() => {
     localStorage.setItem('contacts', JSON.stringify(contacts));
@@ -34,12 +32,7 @@ export const App = () => {
   return (
     <>
       <h1>Phonebook</h1>
-      <ContactForm
-        addContact={addContact}
-        initialName={name}
-        initialNumber={number}
-        contacts={contacts}
-      />
+      <ContactForm addContact={addContact} contacts={contacts} />
       <h2>Contacts</h2>
       <Filter contacts={contacts} handleFilterChange={handleFilterChange} />
       <ContactList contacts={filteredContacts} deleteContact={deleteContact} />

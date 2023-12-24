@@ -12,12 +12,10 @@ let userSchema = object({
     .integer(),
 });
 
-export const ContactForm = ({
-  addContact,
-  initialName,
-  initialNumber,
-  contacts,
-}) => {
+export const ContactForm = ({ addContact, contacts }) => {
+  const initialName = '';
+  const initialNumber = '';
+
   const handleSubmit = (values, { resetForm }) => {
     const { name, number } = values;
     const newContact = { id: nanoid(), name, number };
